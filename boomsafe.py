@@ -12,8 +12,8 @@ MINI_APP_URL = "https://boomsafe.surge.sh/"
 # Access Keys:
 # Key 1: Displays a simple verification message.
 # Key 2: Unlocks the Mini-App.
-ACCESS_KEY_1 = "83fa2c19mxlp9zr0k"
-ACCESS_KEY_2 = "9g3b2c7d5g6e4b3g"
+ACCESS_KEY_1 = "83fa2c20mxlp9zr0k"
+ACCESS_KEY_2 = "9g3b2c7d5g6e2j9g"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗠𝗘𝗦𝗦𝗔𝗚𝗘"""
@@ -164,6 +164,7 @@ def main():
    
 if __name__ == "__main__":
     main()
+
 
 
 
