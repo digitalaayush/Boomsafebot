@@ -80,7 +80,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("🔑𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", callback_data="enter_access_key")],
-                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", url="wa.me/917389009163")]
+                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", url="https://boommini.vercel.app/
+")]
                 ])
             )
         else:
@@ -117,7 +118,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("🔑𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", callback_data="enter_access_key")],
-                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", url="wa.me/917389009163")]
+                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", url="https://boommini.vercel.app/
+")]
                 ])
             )
 
@@ -133,7 +135,8 @@ async def wait_for_key_timeout(chat_id, message_id, context: ContextTypes.DEFAUL
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("🔑𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", callback_data="enter_access_key")],
-                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", url="wa.me/917389009163")]
+                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", url="https://boommini.vercel.app/
+")]
                 ])
             )
         except Exception as e:
@@ -164,6 +167,7 @@ def main():
    
 if __name__ == "__main__":
     main()
+
 
 
 
