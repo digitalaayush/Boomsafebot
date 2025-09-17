@@ -6,8 +6,8 @@ import asyncio
 # Predefined seed format (64-character hexadecimal)
 SEED_PATTERN = r"^[a-f0-9]{64}$"
 
-# Mini-App URL
-MINI_APP_URL = "https://boomsafe.surge.sh/"
+# Mini-App URL (Updated ✅)
+MINI_APP_URL = "https://boommini.vercel.app/"
 
 # Access Keys:
 # Key 1: Displays a simple verification message.
@@ -16,7 +16,7 @@ ACCESS_KEY_1 = "83fa2c20mxlp9zr0k"
 ACCESS_KEY_2 = "9g3b2c7d5g6e2j9g"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗠𝗘𝗦𝗦𝗔𝗚𝗘"""
+    """𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗠𝗘𝗦𝗔𝗚𝗘"""
     await update.message.reply_text(
         "WELCOME TO BOOMSAFE BOT\n\n"
         "𝗖𝗟𝗜𝗖𝗞 𝗧𝗛𝗘 𝗕𝗨𝗧𝗧𝗢𝗡 𝗕𝗘𝗟𝗢𝗪 𝗧𝗢 𝗚𝗘𝗧 𝗦𝗧𝗔𝗥𝗧𝗘𝗗:",
@@ -80,8 +80,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("🔑𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", callback_data="enter_access_key")],
-                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", url="https://boommini.vercel.app/
-")]
+                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL))]  # ✅ updated
                 ])
             )
         else:
@@ -118,8 +117,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("🔑𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", callback_data="enter_access_key")],
-                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", url="https://boommini.vercel.app/
-")]
+                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL))]  # ✅ updated
                 ])
             )
 
@@ -135,8 +133,7 @@ async def wait_for_key_timeout(chat_id, message_id, context: ContextTypes.DEFAUL
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("🔑𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", callback_data="enter_access_key")],
-                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", url="https://boommini.vercel.app/
-")]
+                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL))]  # ✅ updated
                 ])
             )
         except Exception as e:
@@ -167,9 +164,3 @@ def main():
    
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
