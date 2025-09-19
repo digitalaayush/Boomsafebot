@@ -35,7 +35,7 @@ BOT_TOKEN = "7589471338:AAHveBfc0HyxSrkQ-dwWHhJx8RHyJMrNxYM"  # <-- Replace with
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Welcome message"""
     await update.message.reply_text(
-        "WELCOME TO Dr .Stake (Free BOT)\n\n"
+        "Welcome to BOOMSAFEBOT\n\n"
         "𝗖𝗟𝗜𝗖𝗞 𝗧𝗛𝗘 𝗕𝗨𝗧𝗧𝗢𝗡 𝗕𝗘𝗟𝗢𝗪 𝗧𝗢 𝗚𝗘𝗧 𝗦𝗧𝗔𝗥𝗧𝗘𝗗:",
         reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton("⏰𝗦𝗧𝗔𝗥𝗧", callback_data="begin_process")]
@@ -226,3 +226,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
