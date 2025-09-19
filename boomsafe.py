@@ -10,15 +10,13 @@ SEED_PATTERN = r"^[a-f0-9]{64}$"
 MINI_APP_URL = "https://boommini.vercel.app/"
 
 # Access Keys:
-# Key 1: Displays a simple verification message.
-# Key 2: Unlocks the Mini-App.
 ACCESS_KEY_1 = "83fa2c20mxlp9zr0k"
 ACCESS_KEY_2 = "9g3b2c7d5g6e2j9g"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗠𝗘𝗦𝗔𝗚𝗘"""
     await update.message.reply_text(
-        "WELCOME TO BOOMSAFE BOT\n\n"
+        "WELCOME TO Dr .Stake (Free BOT)\n\n"
         "𝗖𝗟𝗜𝗖𝗞 𝗧𝗛𝗘 𝗕𝗨𝗧𝗧𝗢𝗡 𝗕𝗘𝗟𝗢𝗪 𝗧𝗢 𝗚𝗘𝗧 𝗦𝗧𝗔𝗥𝗧𝗘𝗗:",
         reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton("⏰𝗦𝗧𝗔𝗥𝗧", callback_data="begin_process")]
@@ -33,7 +31,8 @@ async def begin_process(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.message.reply_text(
         "💣𝗦𝗘𝗟𝗘𝗖𝗧 𝗡𝗨𝗠𝗕𝗘𝗥 𝗢𝗙 𝗠𝗜𝗡𝗘𝗦⬇️:",
         reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton(f"{i} [𝗩𝗜𝗣]💣", callback_data=f"mines_{i}")] for i in range(1, 11)
+            [InlineKeyboardButton("1 [𝗩𝗜𝗣]💣", callback_data="mines_1")],
+            [InlineKeyboardButton("2 [𝗩𝗜𝗣]💣", callback_data="mines_2")]
         ])
     )
 
@@ -42,6 +41,12 @@ async def select_mines(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
     selected_mines = query.data.split("_")[1]
+
+    # Only allow 1 or 2 mines
+    if selected_mines not in ["1", "2"]:
+        await query.message.reply_text("❌ Invalid selection. Please choose 1 or 2 mines only.")
+        return
+
     await query.message.reply_text(
         f"𝗬𝗢𝗨 𝗦𝗘𝗟𝗘𝗖𝗧𝗘𝗗 {selected_mines} [𝗩𝗜𝗣]💣\n\n"
         "𝗖𝗟𝗜𝗖𝗞 𝗧𝗛𝗘 𝗕𝗨𝗧𝗧𝗢𝗡 𝗕𝗘𝗟𝗢𝗪 𝗧𝗢 𝗖𝗢𝗡𝗧𝗜𝗡𝗨𝗘👇:",
@@ -80,7 +85,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("🔑𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", callback_data="enter_access_key")],
-                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL))]  # ✅ updated
+                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL))]
                 ])
             )
         else:
@@ -117,7 +122,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("🔑𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", callback_data="enter_access_key")],
-                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL))]  # ✅ updated
+                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL))]
                 ])
             )
 
@@ -133,7 +138,7 @@ async def wait_for_key_timeout(chat_id, message_id, context: ContextTypes.DEFAUL
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("🔑𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", callback_data="enter_access_key")],
-                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL))]  # ✅ updated
+                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL))]
                 ])
             )
         except Exception as e:
@@ -153,7 +158,7 @@ async def access_key_options(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
 def main():
     """Run the bot."""
-    application = ApplicationBuilder().token("8477862139:AAEnneE308Y_qokCo-DAFI1176YtcbZ4fF4").build()
+    application = ApplicationBuilder().token("YOUR_BOT_TOKEN_HERE").build()
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CallbackQueryHandler(begin_process, pattern="^begin_process$"))
     application.add_handler(CallbackQueryHandler(select_mines, pattern="^mines_"))
@@ -164,4 +169,3 @@ def main():
    
 if __name__ == "__main__":
     main()
-
