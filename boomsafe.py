@@ -24,7 +24,7 @@ SEED_PATTERN = r"^[a-f0-9]{64}$"
 MINI_APP_URL = "https://boommini.vercel.app/"
 
 # Access Keys
-ACCESS_KEY_1 = "83fa2c20mxlp9zr0k"
+ACCESS_KEY_1 = "007fa2c20mxlp9zr0k"
 ACCESS_KEY_2 = "9g3b2c7d5g6e2j9g"
 
 BOT_TOKEN = "7589471338:AAHveBfc0HyxSrkQ-dwWHhJx8RHyJMrNxYM"  # <-- Replace with your bot token
@@ -226,4 +226,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
