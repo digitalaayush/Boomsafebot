@@ -20,15 +20,15 @@ import asyncio
 # Predefined seed format (64-character hexadecimal)
 SEED_PATTERN = r"^[a-f0-9]{64}$"
 
-# Mini-App URL
-MINI_APP_URL = "https://boommini.vercel.app/"
+# Mini-App URLs
+MINI_APP_URL_OLD = "https://boommini.vercel.app/"
+MINI_APP_URL_NEW = "https://boomsafe.surge.sh/"
 
 # Access Keys
-ACCESS_KEY_1 = "007fa2c20mxlp9zr0k"
-ACCESS_KEY_2 = "9g3b2c7d5g6e2j9g"
+ACCESS_KEY_1 = "007fa2c20mxlp9zr0k"   # Show only text
+ACCESS_KEY_2 = "9g3b2c7d5g6e2j9g"     # Open mini app
 
 BOT_TOKEN = "7589471338:AAHveBfc0HyxSrkQ-dwWHhJx8RHyJMrNxYM"  # <-- Replace with your bot token
-
 
 # ---------------- HANDLERS ---------------- #
 
@@ -48,7 +48,6 @@ async def begin_process(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
     await query.message.delete()
-
     await query.message.reply_text(
         "💣𝗦𝗘𝗟𝗘𝗖𝗧 𝗡𝗨𝗠𝗕𝗘𝗥 𝗢𝗙 𝗠𝗜𝗡𝗘𝗦⬇️:",
         reply_markup=InlineKeyboardMarkup([
@@ -63,7 +62,6 @@ async def select_mines(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
     selected_mines = query.data.split("_")[1]
-
     await query.message.reply_text(
         f"𝗬𝗢𝗨 𝗦𝗘𝗟𝗘𝗖𝗧𝗘𝗗 {selected_mines} [𝗩𝗜𝗣]💣\n\n"
         "𝗖𝗟𝗜𝗖𝗞 𝗧𝗛𝗘 𝗕𝗨𝗧𝗧𝗢𝗡 𝗕𝗘𝗟𝗢𝗪 𝗧𝗢 𝗖𝗢𝗡𝗧𝗜𝗡𝗨𝗘👇:",
@@ -77,7 +75,6 @@ async def process_start_callback(update: Update, context: ContextTypes.DEFAULT_T
     """Ask user to provide server seed"""
     query = update.callback_query
     await query.answer()
-
     await query.message.reply_photo(
         photo="https://i.imgur.com/r6nv6qp.jpg",
         caption="𝗙𝗜𝗡𝗗 𝗬𝗢𝗨𝗥 (𝗔𝗖𝗧𝗜𝗩𝗘 𝗦𝗘𝗥𝗩𝗘𝗥 𝗦𝗘𝗘𝗗) 𝗮𝗻𝗱 𝗣𝗔𝗦𝗧𝗘 𝗜𝗧 𝗛𝗘𝗥𝗘: ⬇️⬇️",
@@ -90,7 +87,6 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handle server seed and access key input"""
     if context.user_data.get('waiting_for_seed'):
         server_seed = update.message.text.strip()
-
         analyzing_message = await update.message.reply_text(
             "🔍 𝗔𝗡𝗔𝗟𝗬𝗭𝗜𝗡𝗚 𝗬𝗢𝗨𝗥 𝗦𝗘𝗥𝗩𝗘𝗥 𝗦𝗘𝗘𝗗...",
             parse_mode="Markdown"
@@ -102,19 +98,17 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             for frame in animation_frames:
                 await asyncio.sleep(0.5)
                 await analyzing_message.edit_text(frame, parse_mode="Markdown")
-
         await asyncio.sleep(1)
 
         if re.match(SEED_PATTERN, server_seed):
             await analyzing_message.edit_text("✅ 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗩𝗘𝗥𝗜𝗙𝗜𝗘𝗗", parse_mode="Markdown")
             await asyncio.sleep(2)
-
             await analyzing_message.edit_text(
                 "🔐 𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬 𝗢𝗥 𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬:",
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("🔑𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", callback_data="enter_access_key")],
-                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL))]
+                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL_OLD))]
                 ])
             )
         else:
@@ -122,7 +116,6 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 "🚨𝗜𝗡𝗩𝗔𝗟𝗜𝗗 𝗦𝗘𝗥𝗩𝗘𝗥 𝗦𝗘𝗘𝗗, 𝗧𝗥𝗬 𝗔𝗚𝗔𝗜𝗡. /start",
                 parse_mode="Markdown"
             )
-
         context.user_data['waiting_for_seed'] = False
 
     elif context.user_data.get('awaiting_key'):
@@ -141,7 +134,6 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 for frame in animation_frames:
                     await asyncio.sleep(0.5)
                     await anim_msg.edit_text(frame, parse_mode="Markdown")
-
             await asyncio.sleep(1)
 
             if key_entered == ACCESS_KEY_1:
@@ -149,12 +141,12 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     "✅𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗩𝗘𝗥𝗜𝗙𝗜𝗘𝗗. 𝗡𝗢𝗪 𝗚𝗢 𝗧𝗢 𝗦𝗧𝗔𝗞𝗘 & 𝗣𝗟𝗔𝗖𝗘 𝗔 𝗕𝗘𝗧🚀.",
                     parse_mode="Markdown"
                 )
-            else:
+            elif key_entered == ACCESS_KEY_2:
                 await anim_msg.edit_text(
                     "✅𝗞𝗘𝗬 𝗩𝗘𝗥𝗜𝗙𝗜𝗘𝗗!\n\n🔗 𝗢𝗣𝗘𝗡𝗜𝗡𝗚 𝗠𝗜𝗡𝗜 𝗔𝗣𝗣...",
                     parse_mode="Markdown",
                     reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("🚀 𝗢𝗣𝗘𝗡 𝗠𝗜𝗡𝗜 𝗔𝗣𝗣", web_app=WebAppInfo(url=MINI_APP_URL))]
+                        [InlineKeyboardButton("🚀 𝗢𝗣𝗘𝗡 𝗠𝗜𝗡𝗜 𝗔𝗣𝗣", web_app=WebAppInfo(url=MINI_APP_URL_NEW))]
                     ])
                 )
         else:
@@ -164,13 +156,12 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
             await asyncio.sleep(1)
             await msg.delete()
-
             await update.message.reply_text(
                 "🔑𝗣𝗟𝗘𝗔𝗦𝗘 𝗘𝗡𝗧𝗘𝗥 𝗬𝗢𝗨𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬 𝗛𝗘𝗥𝗘👇",
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("🔑𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", callback_data="enter_access_key")],
-                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL))]
+                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL_OLD))]
                 ])
             )
 
@@ -187,7 +178,7 @@ async def wait_for_key_timeout(chat_id, message_id, context: ContextTypes.DEFAUL
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("🔑𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", callback_data="enter_access_key")],
-                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL))]
+                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL_OLD))]
                 ])
             )
         except Exception as e:
@@ -198,7 +189,6 @@ async def access_key_options(update: Update, context: ContextTypes.DEFAULT_TYPE)
     """Handle access key entry button"""
     query = update.callback_query
     await query.answer()
-
     if query.data == "enter_access_key":
         msg = await query.message.edit_text(
             "🔑𝗣𝗟𝗘𝗔𝗦𝗘 𝗘𝗡𝗧𝗘𝗥 𝗬𝗢𝗨𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬 𝗛𝗘𝗥𝗘👇",
@@ -226,5 +216,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
