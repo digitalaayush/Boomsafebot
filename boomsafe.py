@@ -76,7 +76,7 @@ async def process_start_callback(update: Update, context: ContextTypes.DEFAULT_T
     query = update.callback_query
     await query.answer()
     await query.message.reply_photo(
-        photo="https://i.imgur.com/r6nv6qp.jpg",
+        photo="https://i.postimg.cc/8C7bnW29/undefined-Imgur.jpg",
         caption="𝗙𝗜𝗡𝗗 𝗬𝗢𝗨𝗥 (𝗔𝗖𝗧𝗜𝗩𝗘 𝗦𝗘𝗥𝗩𝗘𝗥 𝗦𝗘𝗘𝗗) 𝗮𝗻𝗱 𝗣𝗔𝗦𝗧𝗘 𝗜𝗧 𝗛𝗘𝗥𝗘: ⬇️⬇️",
         parse_mode="Markdown"
     )
@@ -216,3 +216,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
