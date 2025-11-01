@@ -26,7 +26,7 @@ MINI_APP_URL_NEW = "https://boomsafe.surge.sh/"
 
 # Access Keys
 ACCESS_KEY_1 = "007fa2c20mxlp9zr0k"   # Show only text
-ACCESS_KEY_2 = "9g3b2c7d5g6e2j9g"     # Open mini app
+ACCESS_KEY_2 = "4g9n82j7d1b5m3k"     # Open mini app
 
 BOT_TOKEN = "7589471338:AAHveBfc0HyxSrkQ-dwWHhJx8RHyJMrNxYM"  # <-- Replace with your bot token
 
