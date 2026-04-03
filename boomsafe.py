@@ -108,7 +108,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("🔑𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", callback_data="enter_access_key")],
-                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL_OLD))]
+                    [InlineKeyboardButton("👉𝗚𝗘𝗧 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬 ₹𝟗𝟗𝟗", url=f"https://wa.me/{+919039519098}?text=Hi%20I%20want%20to%20buy%20BOOMSAFEBOT%20access%20key")]
                 ])
             )
         else:
@@ -161,7 +161,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("🔑𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", callback_data="enter_access_key")],
-                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL_OLD))]
+                    [InlineKeyboardButton("👉𝗚𝗘𝗧 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬 ₹𝟗𝟗𝟗", url=f"https://wa.me/{+919039519098}?text=Hi%20I%20want%20to%20buy%20BOOMSAFEBOT%20access%20key")]
                 ])
             )
 
@@ -178,7 +178,7 @@ async def wait_for_key_timeout(chat_id, message_id, context: ContextTypes.DEFAUL
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("🔑𝗘𝗡𝗧𝗘𝗥 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", callback_data="enter_access_key")],
-                    [InlineKeyboardButton("👉𝗕𝗨𝗬 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬", web_app=WebAppInfo(url=MINI_APP_URL_OLD))]
+                    [InlineKeyboardButton("👉𝗚𝗘𝗧 𝗔𝗖𝗖𝗘𝗦𝗦 𝗞𝗘𝗬 ₹𝟗𝟗𝟗", url=f"https://wa.me/{+919039519098}?text=Hi%20I%20want%20to%20buy%20BOOMSAFEBOT%20access%20key")]
                 ])
             )
         except Exception as e:
